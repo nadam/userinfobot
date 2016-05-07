@@ -1,0 +1,15 @@
+# Java
+*.class
+
+# Eclipse stuff
+bin/
+.project
+.classpath
+.settings/
+*.launch
+
+# Maven
+target/
+
+# Mac stuff
+*.DS_Store
