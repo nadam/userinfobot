@@ -26,8 +26,7 @@ public class UserInfoServlet extends HttpServlet implements ErrorListener {
     }
 
     @Override
-	public void doPost(HttpServletRequest req, HttpServletResponse resp)
-			throws IOException {
+    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
         resp.setStatus(200);
 
@@ -36,31 +35,31 @@ public class UserInfoServlet extends HttpServlet implements ErrorListener {
             if (!update.isMessage()) {
                 return;
             }
-			Message message = update.message;
-			User forwardFrom = message.forward_from;
-			User user = forwardFrom;
-			if (forwardFrom == null) {
+            Message message = update.message;
+            User forwardFrom = message.forward_from;
+            User user = forwardFrom;
+            if (forwardFrom == null) {
                 // Not forwarded so show info of the sender instead
                 user = message.from;
-			}
+            }
             StringBuilder builder = new StringBuilder();
-			if (user.username != null) {
-				builder.append("@").append(user.username).append('\n');
-			}
-			builder.append("Id: ").append(user.id).append('\n');
-			builder.append("First: ").append(user.first_name).append('\n');
-			if (user.last_name != null) {
-				builder.append("Last: ").append(user.last_name).append('\n');
-			}
-			// Separate message for easy copy/paste on mobile
+            if (user.username != null) {
+                builder.append("@").append(user.username).append('\n');
+            }
+            builder.append("Id: ").append(user.id).append('\n');
+            builder.append("First: ").append(user.first_name).append('\n');
+            if (user.last_name != null) {
+                builder.append("Last: ").append(user.last_name).append('\n');
+            }
+            // Separate message for easy copy/paste on mobile
             if (message.from.id == OWNER && forwardFrom != null) {
                 api.sendMessage(OWNER, String.valueOf(user.id));
-			}
+            }
             api.sendMessage(message.from.id, builder.toString());
-		} catch (Exception e) {
+        } catch (Exception e) {
             api.debug(e);
-		}
-	}
+        }
+    }
 
     @Override
     public void onError(int errorCode, String description) {
