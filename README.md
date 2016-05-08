@@ -8,7 +8,7 @@ The bot is written in Java for [Google App Engine](https://cloud.google.com/appe
 Dependencies
 ------------
 - [TgBotApi](https://github.com/nadam/tg-bot-api) Java library for Telegram Bot API
-- [GSON](https://github.com/google/gson 2.5), which is also part of [Google App Engine](https://cloud.google.com/appengine/)
+- [GSON](https://github.com/google/gson), which is also part of [Google App Engine](https://cloud.google.com/appengine/)
 
 Creating your own bot
 ---------------------
