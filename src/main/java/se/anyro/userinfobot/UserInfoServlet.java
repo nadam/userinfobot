@@ -15,10 +15,14 @@ import se.anyro.tgbotapi.types.Message;
 import se.anyro.tgbotapi.types.Update;
 import se.anyro.tgbotapi.types.User;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 @SuppressWarnings("serial")
 public class UserInfoServlet extends HttpServlet implements ErrorListener {
 
     private TgBotApi api;
+    private static Gson GSON = new GsonBuilder().setPrettyPrinting().create();
 
     public UserInfoServlet() {
         super();
@@ -63,6 +67,10 @@ public class UserInfoServlet extends HttpServlet implements ErrorListener {
 
     @Override
     public void onError(int errorCode, String description) {
+        // Ignore blocked users
+        if (errorCode == 403) {
+            return;
+        }
         api.debug(new Exception("ErrorCode " + errorCode + ", " + description));
     }
 }
