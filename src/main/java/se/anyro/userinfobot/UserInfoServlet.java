@@ -26,7 +26,8 @@ public class UserInfoServlet extends HttpServlet implements ErrorListener {
 
     public UserInfoServlet() {
         super();
-        api = new TgBotApi(TOKEN, OWNER, this);
+        api = new TgBotApi(TOKEN, OWNER);
+        api.debug("Bot started");
     }
 
     @Override
@@ -54,6 +55,9 @@ public class UserInfoServlet extends HttpServlet implements ErrorListener {
             builder.append("First: ").append(user.first_name).append('\n');
             if (user.last_name != null) {
                 builder.append("Last: ").append(user.last_name).append('\n');
+            }
+            if (user.language_code != null) {
+                builder.append("Lang: ").append(user.language_code).append('\n');
             }
             // Separate message for easy copy/paste on mobile
             if (message.from.id == OWNER && forwardFrom != null) {
