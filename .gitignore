@@ -15,5 +15,5 @@ target/
 *.DS_Store
 
 # Files with sensitive information. Hiding them like this actually works in Eclipse, but not when using git directly.
-src/main/java/se/anyro/userinfobot/BuildVars.java
+*BuildVars.java
 src/main/webapp/WEB-INF/web.xml
