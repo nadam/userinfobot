@@ -11,7 +11,7 @@
     <properties>
         <app.id>userinfobot</app.id>
         <app.version>1</app.version>
-        <tgbotapi.version>1.2-SNAPSHOT</tgbotapi.version>
+        <tgbotapi.version>1.8-SNAPSHOT</tgbotapi.version>
         <appengine.version>1.9.21</appengine.version>
         <gcloud.plugin.version>0.9.58.v20150505</gcloud.plugin.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
