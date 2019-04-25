@@ -37,10 +37,10 @@ public class UserInfoServlet extends HttpServlet {
 
         try {
             Update update = api.parseFromWebhook(req.getReader());
-            if (!update.isMessage()) {
+            Message message = update.message;
+            if (message == null) {
                 return;
             }
-            Message message = update.message;
             User user = message.forward_from;
             if (user == null) {
                 if (!message.isForwardedFromChannel()) {
@@ -49,12 +49,11 @@ public class UserInfoServlet extends HttpServlet {
                 }
             }
 
-            if (lastFrom == message.from.id && lastId == user.id) {
-                return; // Ignore repeated message
-            }
-
             StringBuilder builder = new StringBuilder();
             if (user != null) {
+                if (lastFrom == message.from.id && lastId == user.id) {
+                    return; // Ignore repeated message
+                }
                 if (user.username != null) {
                     builder.append("@").append(user.username).append('\n');
                 }
