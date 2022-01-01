@@ -19,8 +19,8 @@ import se.anyro.tgbotapi.types.User;
 public class UserInfoServlet extends HttpServlet {
 
     private TgBotApi api;
-    private int lastFrom;
-    private int lastId;
+    private long lastFrom;
+    private long lastId;
 
     // private static Gson GSON = new GsonBuilder().setPrettyPrinting().create();
 
