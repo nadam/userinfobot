@@ -57,7 +57,7 @@ public class UserInfoServlet extends HttpServlet {
                 if (user.username != null) {
                     builder.append("@").append(user.username).append('\n');
                 }
-                builder.append("Id: ").append(user.id).append('\n');
+                builder.append("Id: `").append(user.id).append('`\n');
                 builder.append("First: ").append(user.first_name).append('\n');
                 if (user.last_name != null) {
                     builder.append("Last: ").append(user.last_name).append('\n');
@@ -72,10 +72,10 @@ public class UserInfoServlet extends HttpServlet {
                 if (channel.username != null) {
                     builder.append("@").append(channel.username).append('\n');
                 }
-                builder.append("Id: ").append(channel.id).append('\n');
+                builder.append("Id: `").append(channel.id).append('`\n');
                 builder.append("Title: ").append(channel.title).append('\n');
 
-                if (message.forward_from_message_id != 0) {
+                if (message.forward_from_message_id != 0 && message.forward_from_chat.username != null) {
                     builder.append("https://t.me/" + message.forward_from_chat.username + "/"
                             + message.forward_from_message_id);
                 }
