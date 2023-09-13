@@ -50,14 +50,18 @@ public class UserInfoServlet extends HttpServlet {
             }
 
             StringBuilder builder = new StringBuilder();
-            if (user != null) {
+            if (message.forward_sender_name != null) {
+                builder.append("User: ").append(message.forward_sender_name).append("\n");
+                builder.append("Id inaccessible (User's privacy settings)")
+            }
+            else if (user != null) {
                 if (lastFrom == message.from.id && lastId == user.id) {
                     return; // Ignore repeated message
                 }
                 if (user.username != null) {
                     builder.append("@").append(user.username).append('\n');
                 }
-                builder.append("Id: ").append(user.id).append('\n');
+                builder.append("Id: ").append("<code>").append(user.id).append("</code>").append('\n');
                 builder.append("First: ").append(user.first_name).append('\n');
                 if (user.last_name != null) {
                     builder.append("Last: ").append(user.last_name).append('\n');
@@ -72,7 +76,7 @@ public class UserInfoServlet extends HttpServlet {
                 if (channel.username != null) {
                     builder.append("@").append(channel.username).append('\n');
                 }
-                builder.append("Id: ").append(channel.id).append('\n');
+                builder.append("Id: ").append("<code>").append(channel.id).append("</code>").append('\n');
                 builder.append("Title: ").append(channel.title).append('\n');
 
                 if (message.forward_from_message_id != 0 && message.forward_from_chat.username != null) {
@@ -80,7 +84,7 @@ public class UserInfoServlet extends HttpServlet {
                             + message.forward_from_message_id);
                 }
             }
-            api.sendMessage(message.from.id, builder.toString(), null, true, 0, null);
+            api.sendMessage(message.from.id, builder.toString(), "HTML", true, 0, null);
         } catch (Exception e) {
             api.debug(e);
         }
