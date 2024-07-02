@@ -1,0 +1,30 @@
+UserID: 1408935600 | Time: 2024-04-20 09:18:29.943350 | Command: /bgmi | Target: 20.204.190.195 | Port: 10477 | Time: 120
+Username: @DEVIL_9HX
+Target: 20.204.190.195
+Port: 10477
+Time: 120
+
+UserID: 1408935600 | Time: 2024-04-20 09:20:39.302909 | Command: /bgmi | Target: 20.204.190.195 | Port: 10477 | Time: 120
+Username: @DEVIL_9HX
+Target: 20.204.190.195
+Port: 10477
+Time: 120
+
+UserID: 1408935600 | Time: 2024-04-20 09:22:46.249710 | Command: /bgmi | Target: 20.204.190.195 | Port: 10477 | Time: 120
+Username: @DEVIL_9HX
+Target: 20.204.190.195
+Port: 10477
+Time: 120
+
+UserID: 5034980235 | Time: 2024-04-20 09:27:24.947140 | Command: /bgmi | Target: 20.219.77.5 | Port: 25144 | Time: 180
+Username: @ClutchGod_Owner
+Target: 20.219.77.5
+Port: 25144
+Time: 180
+
+UserID: 5034980235 | Time: 2024-04-20 09:36:27.950102 | Command: /bgmi | Target: 20.235.15.136 | Port: 27568 | Time: 180
+Username: @ClutchGod_Owner
+Target: 20.235.15.136
+Port: 27568
+Time: 180
+
